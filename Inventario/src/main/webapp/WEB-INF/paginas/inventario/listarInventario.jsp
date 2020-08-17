@@ -32,13 +32,6 @@
                                     <td>${activo.os}</td>
                                     <td>${activo.os_version}</td>
                                     <td>
-                                        <a href="${pageContext.request.contextPath}/ServletControlador?accion=editar&id_activo_detalles=${activo_Detalles.id_activo_detalles}" 
-                                           class="btn btn-secondary">
-                                            <i class="fas fa-angle-double-right">
-                                                Editar
-                                            </i>
-                                        </a>
-                                    </td>
                                 </tr>
                             </c:forEach>
                         </tbody>
