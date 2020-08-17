@@ -1,11 +1,12 @@
 package Datos;
 
 import Dominio.Encargado;
+import Dominio.correo_Encargado;
 import java.sql.*;
 import java.util.*;
 
 public class EncargadoDaoJDBC {
-
+    //Queries Encargado_area
     private static final String SQL_SELECT = "SELECT id_encargado, nombre_usuario, nombre, apellido_1"
             + " FROM encargado_area";
     private static final String SQL_BY_ID = "SELECT id_encargado, nombre_usuario, nombre, apellido_1"
@@ -15,7 +16,13 @@ public class EncargadoDaoJDBC {
     private static final String SQL_UPDATE = "UPDATE encargado_area "
             + "SET nombre_usuario=?, nombre=?, apellido_1=?";
     private static final String SQL_DELETE = "DELETE from encargado_area WHERE id_encargado = ?";
-
+    //Queries Correo_Encargado
+        private static final String SQL_SELECT_CORREO = "SELECT correo_1"
+            + " FROM correo_encargado";
+    private static final String SQL_BY_ID_CORREO = "SELECT id_encargado, nombre_usuario, nombre, apellido_1"
+            + " FROM encargado_area WHERE id_encargado = ?";
+    
+    
     public List<Encargado> listar() {
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -75,6 +82,31 @@ public class EncargadoDaoJDBC {
         return encargado;
         
     }
+    public List<correo_Encargado> listar_correo() {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        correo_Encargado correo = null;
+        List<correo_Encargado> correos = new ArrayList<>();
+        try {
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT_CORREO);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                String correo_encargado = rs.getString("correo_1");
+                correo = new correo_Encargado(correo_encargado);
+                correos.add(correo);
 
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(stmt);
+            Conexion.close(conn);
+
+        }
+        return correos;
+    }
 
 }

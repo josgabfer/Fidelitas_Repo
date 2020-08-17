@@ -2,6 +2,7 @@ package web;
 
 import Datos.EncargadoDaoJDBC;
 import Dominio.Encargado;
+import Dominio.correo_Encargado;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -14,6 +15,9 @@ public class ServletControlador extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         List<Encargado> encargados = new EncargadoDaoJDBC().listar();
+        List<correo_Encargado> correos = new EncargadoDaoJDBC().listar_correo();
+        
+        
         System.out.println("encargados =" + encargados);
         request.setAttribute("encargados", encargados);
         request.getRequestDispatcher("encargados.jsp").forward(request, response);

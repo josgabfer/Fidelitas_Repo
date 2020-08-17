@@ -12,7 +12,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nombre Usuario</th>
-                                <th>Nombre Completo</th> 
+                                <th>Nombre Completo</th>
+                                <th>Correo</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -22,15 +23,10 @@
                                     <td>${encargado.id_encargado}</td>
                                     <td>${encargado.nombre_usuario}</td>
                                     <td>${encargado.nombre} ${encargado.apellido_1}</td>
-                                    <td>
-                                        <a href="${pageContext.request.contextPath}/ServletControlador?accion=editar&id_cliente=${encargado.id_encargado}"
-                                           class="btn btn-secondary">
-                                            <i class="fas fa-angle-double-right"></i> Editar
-                                        </a>
-                                    </td>
                                 </tr>
                             </c:forEach>
                         </tbody>
+
                     </table>
                 </div>
             </div>
