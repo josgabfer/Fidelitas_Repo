@@ -13,6 +13,12 @@ public class activoDetalles {
     public activoDetalles(int id_activo_detalles) {
         this.id_activo_detalles = id_activo_detalles;
     }
+        public activoDetalles(int id_activo_detalles, String netbios, String hostname, String os, String os_version) {
+        this.netbios = netbios;
+        this.hostname = hostname;
+        this.os = os;
+        this.os_version = os_version;
+    }
 
     public activoDetalles(String netbios, String hostname, String os, String os_version) {
         this.netbios = netbios;

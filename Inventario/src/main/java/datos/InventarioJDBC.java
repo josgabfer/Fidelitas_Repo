@@ -26,20 +26,19 @@ public class InventarioJDBC {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         activoDetalles activo = null;
-        List<activoDetalles> activosDetalles = new ArrayList<>();
+        List<activoDetalles> activos = new ArrayList<>();
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECT_ACTIVO_DETALLES);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int id_activo = rs.getInt("id_cliente_cliente_detalles");
                 String netbios = rs.getString("netbios");
                 String hostname = rs.getString("hostname");
                 String os = rs.getString("os");
                 String os_version = rs.getString("os_version");
     
                 activo = new activoDetalles(netbios, hostname, os, os_version);
-                activosDetalles.add(activo);
+                activos.add(activo);
             }
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
@@ -48,7 +47,7 @@ public class InventarioJDBC {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-        return activosDetalles;
+        return activos;
     }
 /*
     public Cliente encontrar(Cliente cliente) throws ClassNotFoundException {
