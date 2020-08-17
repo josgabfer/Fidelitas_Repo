@@ -14,7 +14,7 @@ public class ServletControlador extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         List<Encargado> encargados = new EncargadoDaoJDBC().listar();
-        System.out.println("Encargados =" + encargados);
+        System.out.println("encargados =" + encargados);
         request.setAttribute("encargados", encargados);
         request.getRequestDispatcher("encargados.jsp").forward(request, response);
     }
