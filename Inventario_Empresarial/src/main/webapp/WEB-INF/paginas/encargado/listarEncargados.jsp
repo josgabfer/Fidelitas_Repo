@@ -14,6 +14,7 @@
                                 <th>Nombre Usuario</th>
                                 <th>Nombre Completo</th>
                                 <th>Correo</th>
+                                <th>Numero</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -23,6 +24,8 @@
                                     <td>${encargado.id_encargado}</td>
                                     <td>${encargado.nombre_usuario}</td>
                                     <td>${encargado.nombre} ${encargado.apellido_1}</td>
+                                    <td>${encargado.correo_1}</td>
+                                    <td>${encargado.numero_1}</td>
                                 </tr>
                             </c:forEach>
                         </tbody>
