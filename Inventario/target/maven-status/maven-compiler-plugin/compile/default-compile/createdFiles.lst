@@ -1,0 +1,4 @@
+web\ServletControlador.class
+Datos\Conexion.class
+Datos\EncargadoDaoJDBC.class
+Dominio\Encargado.class
