@@ -18,8 +18,6 @@
     <body>
         <!--Cabecero-->
         <jsp:include page="WEB-INF/paginas/comunes/cabecero.jsp"/>
-        <!--botones de navegacion-->
-        <jsp:include page="WEB-INF/paginas/comunes/botonesNavegacion.jsp"/>
         <!--listar Encargados-->
         <jsp:include page="WEB-INF/paginas/encargado/listarEncargados.jsp"/>
         <!--Pie de pagina-->
